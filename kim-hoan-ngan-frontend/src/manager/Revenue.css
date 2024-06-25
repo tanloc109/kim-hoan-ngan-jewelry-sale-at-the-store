@@ -1,0 +1,227 @@
+.col-10 {
+  position: relative;
+  left: 320px;
+}
+
+.revenue {
+  height: 1300px;
+  width: 1200px;
+  background-color: #fff4e8;
+  position: absolute;
+  margin-left: -47px;
+}
+
+.title {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  width: 95%;
+  height: 39.5px;
+  border-radius: 7px;
+  box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+  border-left: 10px solid #a2041b;
+}
+
+.title p {
+  font-weight: 500;
+  position: absolute;
+  top: 7px;
+  left: 15px;
+}
+
+.tagResult {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  top: 80px;
+}
+
+.tagResultToday {
+  position: absolute;
+  left: 20px;
+  height: 100px;
+  width: 223.2px;
+  background-color: #fff4e8;
+  border-radius: 7px;
+  box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tagChild {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 80px;
+  height: 85px;
+  border-radius: 7px;
+  background-color: #a2041b;
+}
+
+.tagChild i {
+  color: #fff4e8;
+  font-size: 35px;
+  position: absolute;
+  top: 23px;
+  left: 30px;
+}
+
+.tagResultWeek {
+  position: absolute;
+  left: 270px;
+  height: 100px;
+  width: 243.2px;
+  background-color: #fff4e8;
+  border-radius: 7px;
+  box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tagResultMonth {
+  position: absolute;
+  left: 540px;
+  height: 100px;
+  width: 243.2px;
+  background-color: #fff4e8;
+  border-radius: 7px;
+  box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tagResultYear {
+  position: absolute;
+  left: 810px;
+  height: 100px;
+  width: 270px;
+  background-color: #fff4e8;
+  border-radius: 7px;
+  box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.detailOrder {
+  width: 95%;
+  height: 1080px;
+  position: absolute;
+  left: 20px;
+  top: 210px;
+  background-color: #fff4e8;
+  border-radius: 7px;
+  box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.combobox {
+  position: absolute;
+  top: 50px;
+  left: 40px;
+}
+
+.detailOrder p {
+  position: absolute;
+  top: 13px;
+  left: 25px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.table {
+  position: absolute;
+  font-size: 14px;
+  width: 95%;
+  top: 100px;
+  left: 30px;
+}
+
+.table th {
+  background-color: #a2041b;
+  color: #fff4e8;
+  text-align: center;
+  padding: 8px;
+  border: 2px solid #ccc;
+}
+
+.table td {
+  border: 2px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  background-color: #fff4e8;
+}
+
+.allOrder {
+  position: absolute;
+  height: 40px;
+  width: 200px;
+  background-color: #a2041b;
+  top: 45px;
+  right: 35px;
+  border-radius: 7px;
+}
+
+.tagResultToday h2 {
+  position: absolute;
+  margin-top: 40px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.tagResultToday p {
+  position: absolute;
+  margin-top: 60px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.tagResultWeek h2 {
+  position: absolute;
+  margin-top: 40px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.tagResultWeek p {
+  position: absolute;
+  margin-top: 60px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.tagResultMonth h2 {
+  position: absolute;
+  margin-top: 40px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.tagResultMonth p {
+  position: absolute;
+  margin-top: 60px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+  font-weight: 500;
+}
+
+.tagResultYear h2 {
+  position: absolute;
+  margin-top: 40px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+}
+
+.tagResultYear p {
+  position: absolute;
+  margin-top: 60px;
+  left: 100px;
+  font-size: 16px;
+  top: 2px;
+  font-weight: 500;
+
+}
+
+.pagination-l {
+  position: absolute;
+  bottom: 25px;
+  right: 28px;
+
+}

@@ -1,0 +1,10 @@
+.report-container {
+    background-color: #fff4e8;
+    min-height: 95vh;
+    margin-left: 280px;
+}
+
+.send-report-btn {
+    margin-top: 20px;
+    margin-left: 20px;
+}

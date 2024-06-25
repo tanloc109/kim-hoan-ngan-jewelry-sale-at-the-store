@@ -1,0 +1,59 @@
+.cash-detail {
+    margin-top: 74px;
+    background-color: #FFF4E8;
+    min-height: 70vh;
+    padding-bottom: 24px;
+}
+
+.order-detail-info {
+    margin-top: 16px;
+}
+
+.cash-detail-title{
+    margin-left: 52px;
+}
+
+.cash-detail-title {
+}
+
+.pay-detail-img {
+    width: 50px;
+    height: 50px;
+}
+
+.info-sumarize {
+}
+
+.order-detail-table {
+margin-top: 12px;
+}
+
+.cash-detail-title-page {
+    font-weight: bold;
+    color: #A2041B;
+    margin-left: 48px;
+    padding-top: 12px;
+    margin-bottom: 0;
+}
+
+.pay-confirm {
+    margin-bottom: 16px;
+    margin-right: 52px;
+}
+
+.confirm-btn {
+    padding: 12px;    
+}
+
+.ma-chuyen-khoan {
+    height: 36px;
+    margin-top: -8px;
+}
+
+.anh-minh-chung {
+    margin-top: -4px;
+}
+
+.ml-table {
+    margin-left: 56px;
+}
