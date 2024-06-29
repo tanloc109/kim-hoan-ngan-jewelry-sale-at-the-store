@@ -22,12 +22,7 @@
 - live demo: http://157.230.35.249/
 - API: https://kimhoannganjewelrystore.azurewebsites.net/swagger-ui/index.html
 
-- Account
-  -------------------------------
-  | username    |   password    |
-  |-----------------------------|
-  |   staff     |       1       |
-  |   staff     |       1       |
-  |   staff     |       1       |
-  -------------------------------
-  
+- Account:
+  + Staff [staff, 1]
+  + Manager [manager, 1]
+  + Admin [admin, 1]
