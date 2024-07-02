@@ -3,16 +3,20 @@ package com.kimhoanngan.tiemvang.controllers;
 import com.kimhoanngan.tiemvang.DTOs.addDTOs.AddProductDTO;
 import com.kimhoanngan.tiemvang.DTOs.responseDTOs.ResponseProductDTO;
 import com.kimhoanngan.tiemvang.DTOs.updateDTOs.UpdateProductDTO;
-import com.kimhoanngan.tiemvang.services.servicesIMPL.ProductService;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.kimhoanngan.tiemvang.services.iservices.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,42 +25,75 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private IProductService productService;
+
+    @Value("${MAX_PAGESIZE}")
+    private int MAX_PAGESIZE;
 
     @PreAuthorize("hasAnyRole('ROLE_STAFF','ROLE_MANAGER')")
     @GetMapping
-    public ResponseEntity<List<ResponseProductDTO>> getAllProducts() {
-        List<ResponseProductDTO> productDTOs = productService.findAll();
-        return ResponseEntity.ok(productDTOs);
+    public ResponseEntity<Page<ResponseProductDTO>> getAllProducts(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) List<String> filterOn,
+            @RequestParam(required = false) List<String> query,
+            @RequestParam(defaultValue = "name") String[] sort) {
+
+        List<Sort.Order> orders = new ArrayList<>();
+
+        for (String sortParam : sort) {
+            String[] sortParams = sortParam.split("-");
+            String sortField = sortParams[0];
+            String sortDirection = "asc";
+
+            if (sortParams.length > 1) {
+                sortDirection = sortParams[1];
+            }
+
+            if ("desc".equalsIgnoreCase(sortDirection)) {
+                orders.add(new Sort.Order(Sort.Direction.DESC, sortField));
+            } else {
+                orders.add(new Sort.Order(Sort.Direction.ASC, sortField));
+            }
+        }
+
+        Pageable pageable = PageRequest.of(page, size > MAX_PAGESIZE ? MAX_PAGESIZE : size, Sort.by(orders));
+
+        if (filterOn == null || query == null || filterOn.size() != query.size()) {
+            Page<ResponseProductDTO> productDTOs = productService.findAll(pageable);
+            return new ResponseEntity<>(productDTOs, HttpStatus.OK);
+        }
+
+        Page<ResponseProductDTO> productDTOs = productService.findByCriteria(filterOn, query, pageable);
+        return new ResponseEntity<>(productDTOs, HttpStatus.OK);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_STAFF','ROLE_MANAGER')")
     @GetMapping("/{id}")
     public ResponseEntity<Optional<ResponseProductDTO>> getProductById(@PathVariable int id) {
         Optional<ResponseProductDTO> productDTO = productService.findById(id);
-        return productDTO.map(category -> new ResponseEntity<>(productDTO, HttpStatus.OK))
+        return productDTO.map(product -> new ResponseEntity<>(productDTO, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PreAuthorize("hasRole('ROLE_MANAGER')")
     @PostMapping
-    public ResponseEntity<ResponseProductDTO> createProduct(@ModelAttribute AddProductDTO productDTO) {
+    public ResponseEntity<ResponseProductDTO> createProduct(@RequestBody AddProductDTO productDTO) {
         try {
             ResponseProductDTO product = productService.save(productDTO);
             return new ResponseEntity<>(product, HttpStatus.CREATED);
-        } catch (Exception e) {
+        } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
 
     @PreAuthorize("hasRole('ROLE_MANAGER')")
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseProductDTO> updateProduct(@PathVariable int id, @ModelAttribute UpdateProductDTO productDTO) {
+    public ResponseEntity<ResponseProductDTO> updateProduct(@PathVariable int id, @RequestBody UpdateProductDTO productDTO) {
         try {
-            productDTO.setId(id);
             ResponseProductDTO updatedProduct = productService.update(id, productDTO);
             return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
-        } catch (RuntimeException | IOException e) {
+        } catch (IOException | RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
@@ -73,35 +110,24 @@ public class ProductController {
     }
 
     @PreAuthorize("hasAnyRole('ROLE_STAFF','ROLE_MANAGER')")
-    @GetMapping("/get-top-10-product-best-seller")
+    @GetMapping("/top-seller")
     public ResponseEntity<List<ResponseProductDTO>> getTop10ProductsBestSeller() {
         List<ResponseProductDTO> productDTOs = productService.getTop10ProductsBestSeller();
-        return ResponseEntity.ok(productDTOs);
+        return new ResponseEntity<>(productDTOs, HttpStatus.OK);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_STAFF','ROLE_MANAGER')")
-    @GetMapping("/get-product-out-of-stock")
-    public ResponseEntity<List<ResponseProductDTO>> getProductsOutOfStock() {
-        List<ResponseProductDTO> productDTOs = productService.findAllProductsOutOfStock();
-        return ResponseEntity.ok(productDTOs);
-    }
-
-    @PutMapping("update-product-price-follow-material-price/{id}")
-    public ResponseEntity<ResponseProductDTO> updateProductPriceFollowMaterialPrice(@PathVariable int id) {
+    @PutMapping("/update-price/{id}")
+    public ResponseEntity<ResponseProductDTO> updatePriceFollowPriceMaterial(@PathVariable int id) {
         ResponseProductDTO productDTO = productService.updatePriceFollowPriceMaterial(id);
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
-    @PutMapping("update-all-prices-follow-material-price")
-    public ResponseEntity<List<ResponseProductDTO>> updateAllPriceFollowMaterialPrice() {
+    @PreAuthorize("hasAnyRole('ROLE_STAFF','ROLE_MANAGER')")
+    @PutMapping("/update-all-prices")
+    public ResponseEntity<List<ResponseProductDTO>> updateAllPricesFollowPriceMaterial() {
         List<ResponseProductDTO> productDTOs = productService.updateAllPriceFollowPriceMaterial();
-        return ResponseEntity.ok(productDTOs);
+        return new ResponseEntity<>(productDTOs, HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_STAFF','ROLE_MANAGER')")
-    @GetMapping("get-products-by-name-or-id")
-    public ResponseEntity<List<ResponseProductDTO>> getProductsByNameOrId(@RequestParam String searchKey) {
-        List<ResponseProductDTO> productDTOs = productService.getProductsBySearchKey(searchKey);
-        return ResponseEntity.ok(productDTOs);
-    }
 }

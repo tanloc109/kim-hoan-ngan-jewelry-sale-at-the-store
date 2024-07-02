@@ -10,11 +10,14 @@ import com.kimhoanngan.tiemvang.pojos.Stone;
 import com.kimhoanngan.tiemvang.repositories.ICategoryRepository;
 import com.kimhoanngan.tiemvang.repositories.IMaterialRepository;
 import com.kimhoanngan.tiemvang.repositories.IProductRepository;
-import com.kimhoanngan.tiemvang.services.iservices.ICategoryService;
 import com.kimhoanngan.tiemvang.services.iservices.IProductService;
+import com.kimhoanngan.tiemvang.specifications.ProductSpecification;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -41,13 +44,26 @@ public class ProductService implements IProductService {
     private ImageUploadingService imageUploadingService;
 
     @Override
-    public List<ResponseProductDTO> findAll() {
-        List<Product> products = productRepository.findAll();
-        List<ResponseProductDTO> productDTOs = new ArrayList<>();
-        for (Product product : products) {
-            productDTOs.add(productMapper.toResponseDTO(product));
+    public Page<ResponseProductDTO> findAll(Pageable pageable) {
+        Page<Product> products = productRepository.findAll(pageable);
+        return products.map(productMapper::toResponseDTO);
+    }
+
+    @Override
+    public Page<ResponseProductDTO> findByCriteria(List<String> fields, List<String> values, Pageable pageable) {
+        Specification<Product> spec = Specification.where(null);
+
+        for (int i = 0; i < fields.size(); i++) {
+            String field = fields.get(i);
+            String value = values.get(i);
+            Specification<Product> newSpec = ProductSpecification.filterByField(field, value);
+            if (newSpec != null) {
+                spec = spec.and(newSpec);
+            }
         }
-        return productDTOs;
+
+        Page<Product> products = productRepository.findAll(spec, pageable);
+        return products.map(productMapper::toResponseDTO);
     }
 
     @Override
@@ -109,16 +125,6 @@ public class ProductService implements IProductService {
 
 
     @Override
-    public List<ResponseProductDTO> findAllProductsOutOfStock() {
-        List<Product> products = productRepository.getProductOutOfStock();
-        List<ResponseProductDTO> productDTOs = new ArrayList<>();
-        for (Product product : products) {
-            productDTOs.add(productMapper.toResponseDTO(product));
-        }
-        return productDTOs;
-    }
-
-    @Override
     public List<ResponseProductDTO> getTop10ProductsBestSeller() {
         List<Product> products = productRepository.getTopBestSeller();
         List<ResponseProductDTO> productDTOs = new ArrayList<>();
@@ -142,17 +148,6 @@ public class ProductService implements IProductService {
         }
         return productDTOs;
     }
-
-    @Override
-    public List<ResponseProductDTO> getProductsBySearchKey(String searchKey) {
-        List<Product> products = productRepository.findProductBySearch(searchKey);
-        List<ResponseProductDTO> productDTOs = new ArrayList<>();
-        for (Product product : products) {
-            productDTOs.add(productMapper.toResponseDTO(product));
-        }
-        return productDTOs;
-    }
-
 
     private ResponseProductDTO calculateProductPriceFollowMaterialPrice(int productId) {
         double total = 0;

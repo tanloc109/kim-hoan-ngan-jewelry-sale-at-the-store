@@ -1,14 +1,15 @@
 package com.kimhoanngan.tiemvang.repositories;
 
 import com.kimhoanngan.tiemvang.pojos.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface ICustomerRepository extends JpaRepository<Customer,Integer> {
+public interface ICustomerRepository extends JpaRepository<Customer,Integer>, JpaSpecificationExecutor<Customer> {
 
-    List<Customer> findByPhoneContaining(String number);
+    Page<Customer> findAll(Pageable pageable);
 
 }

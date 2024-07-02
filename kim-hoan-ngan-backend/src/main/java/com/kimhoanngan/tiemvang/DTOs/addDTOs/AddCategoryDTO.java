@@ -7,5 +7,4 @@ public class AddCategoryDTO {
 
     private String name;
 
-    private boolean isActive;
 }

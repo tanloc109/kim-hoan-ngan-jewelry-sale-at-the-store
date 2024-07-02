@@ -6,7 +6,11 @@ import com.kimhoanngan.tiemvang.mappers.CustomerMapper;
 import com.kimhoanngan.tiemvang.pojos.Customer;
 import com.kimhoanngan.tiemvang.repositories.ICustomerRepository;
 import com.kimhoanngan.tiemvang.services.iservices.ICustomerService;
+import com.kimhoanngan.tiemvang.specifications.CustomerSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,15 +23,27 @@ public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerRepository customerRepository;
 
+    @Override
+    public Page<ResponseCustomerDTO> findAll(Pageable pageable) {
+        Page<Customer> customers = customerRepository.findAll(pageable);
+        return customers.map(CustomerMapper::toResponseDTO);
+    }
 
     @Override
-    public List<ResponseCustomerDTO> findAll() {
-        List<Customer> customers = customerRepository.findAll();
-        List<ResponseCustomerDTO> customerDTOs = new ArrayList<>();
-        for (Customer customer : customers) {
-            customerDTOs.add(CustomerMapper.toResponseDTO(customer));
+    public Page<ResponseCustomerDTO> findByCriteria(List<String> fields, List<String> values, Pageable pageable) {
+        Specification<Customer> spec = Specification.where(null);
+
+        for (int i = 0; i < fields.size(); i++) {
+            String field = fields.get(i);
+            String value = values.get(i);
+            Specification<Customer> newSpec = CustomerSpecification.filterByField(field, value);
+            if (newSpec != null) {
+                spec = spec.and(newSpec);
+            }
         }
-        return customerDTOs;
+
+        Page<Customer> customers = customerRepository.findAll(spec, pageable);
+        return customers.map(CustomerMapper::toResponseDTO);
     }
 
     @Override
@@ -57,13 +73,5 @@ public class CustomerService implements ICustomerService {
         customerRepository.deleteById(id);
     }
 
-    @Override
-    public List<ResponseCustomerDTO> findCustomersByPhoneNumber(String phone) {
-            List<Customer> customers = customerRepository.findByPhoneContaining(phone);
-            List<ResponseCustomerDTO> customerDTOs = new ArrayList<>();
-            for (Customer customer : customers) {
-                customerDTOs.add(CustomerMapper.toResponseDTO(customer));
-            }
-            return customerDTOs;
-        }
+
 }

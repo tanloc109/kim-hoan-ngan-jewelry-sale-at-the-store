@@ -11,7 +11,7 @@ public class CategoryMapper {
     public static Category toEntity(AddCategoryDTO dto) {
         Category category = new Category();
         category.setName(dto.getName());
-        category.setActive(dto.isActive());
+        category.setActive(true);
         return category;
     }
 
@@ -27,7 +27,6 @@ public class CategoryMapper {
         ResponseCategoryDTO dto = new ResponseCategoryDTO();
         dto.setId(category.getId());
         dto.setName(category.getName());
-        dto.setActive(category.isActive());
         return dto;
     }
 

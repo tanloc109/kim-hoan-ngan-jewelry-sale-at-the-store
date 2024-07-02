@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 .cors(cors -> cors
                         .configurationSource(request -> {
                             var corsConfig = new org.springframework.web.cors.CorsConfiguration();
-                            corsConfig.setAllowedOrigins(List.of("http://localhost:3000", "http://157.230.35.249"));
+                            corsConfig.setAllowedOrigins(List.of("http://localhost:3000", "http://157.230.35.249", "https://kimhoannganjewelrystore.azurewebsites.net"));
                             corsConfig.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
                             corsConfig.setAllowedHeaders(List.of("*"));
                             corsConfig.setAllowCredentials(true);

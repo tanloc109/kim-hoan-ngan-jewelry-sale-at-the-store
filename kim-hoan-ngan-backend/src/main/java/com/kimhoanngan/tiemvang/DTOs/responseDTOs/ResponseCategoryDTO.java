@@ -9,5 +9,4 @@ public class ResponseCategoryDTO {
 
     private String name;
 
-    private boolean isActive;
 }
