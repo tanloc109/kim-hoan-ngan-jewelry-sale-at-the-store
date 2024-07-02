@@ -23,6 +23,6 @@
 - API: https://kimhoannganjewelrystore.azurewebsites.net/swagger-ui/index.html
 
 - Account:
-  + Staff [staff, 1]
-  + Manager [manager, 1]
-  + Admin [admin, 1]
+  + Staff [staff, 12345]
+  + Manager [manager, 12345]
+  + Admin [admin, 12345]
