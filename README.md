@@ -20,8 +20,7 @@
 - Architecture: 3-Layer Architecture
 
 - live demo: kimhoanngan.shop
-- API: https://kimhoannganjewelrystore.azurewebsites.net/swagger-ui/index.html
-
+- API: http://157.230.35.249:8080/swagger-ui/index.html#
 - Account:
   + Staff [staff, 12345]
   + Manager [manager, 12345]
