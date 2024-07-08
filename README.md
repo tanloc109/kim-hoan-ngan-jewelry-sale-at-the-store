@@ -19,7 +19,7 @@
   + Best practice APIs have filters, sort, paginations
 - Architecture: 3-Layer Architecture
 
-- live demo: http://157.230.35.249/
+- live demo: kimhoanngan.shop
 - API: https://kimhoannganjewelrystore.azurewebsites.net/swagger-ui/index.html
 
 - Account:
