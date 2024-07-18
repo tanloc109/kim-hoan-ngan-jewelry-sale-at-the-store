@@ -4,6 +4,5 @@ import lombok.Data;
 
 @Data
 public class AddWarrantyDTO {
-
     private int orderId;
 }

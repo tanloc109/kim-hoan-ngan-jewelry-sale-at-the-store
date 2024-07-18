@@ -50,6 +50,7 @@ public class PaymentMapper {
     public ResponsePaymentDTO toResponseDTO(Payment payment) {
         ResponsePaymentDTO dto = new ResponsePaymentDTO();
         dto.setId(payment.getId());
+        dto.setCode(payment.getCode());
         dto.setType(payment.getType());
         dto.setCash(payment.getCash());
         dto.setBank(payment.getBank());

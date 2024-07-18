@@ -14,6 +14,10 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(length = 7, columnDefinition = "char(7)")
+    private String code;
+
+    @Column(length = 30, columnDefinition = "nvarchar(30)")
     private String type;
 
     private double cash;

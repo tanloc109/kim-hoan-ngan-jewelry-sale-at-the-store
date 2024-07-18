@@ -20,6 +20,7 @@ public class UserMapper {
         user.setLevel(dto.getLevel());
         user.setActive(dto.isActive());
         user.setRole(role);
+        user.setActive(true);
        return user;
     }
 

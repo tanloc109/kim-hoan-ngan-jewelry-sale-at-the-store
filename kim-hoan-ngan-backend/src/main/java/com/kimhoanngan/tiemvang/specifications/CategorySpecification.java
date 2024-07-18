@@ -10,10 +10,8 @@ public class CategorySpecification {
             switch (field) {
                 case "id":
                     return criteriaBuilder.equal(root.get(field), Integer.parseInt(value));
-                case "name", "phone":
+                case "name", "code":
                     return criteriaBuilder.like(root.get(field), "%" + value + "%");
-                case "active":
-                    return criteriaBuilder.equal(root.get(field), Boolean.parseBoolean(value));
                 default:
                     return null;
             }

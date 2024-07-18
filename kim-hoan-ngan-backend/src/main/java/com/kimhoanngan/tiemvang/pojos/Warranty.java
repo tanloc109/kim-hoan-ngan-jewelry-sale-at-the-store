@@ -14,6 +14,9 @@ public class Warranty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(length = 7, columnDefinition = "char(7)")
+    private String code;
+
     private Date startDate;
 
     private Date endDate;

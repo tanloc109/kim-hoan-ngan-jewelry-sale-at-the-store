@@ -49,14 +49,14 @@ public class OrderService {
         List<Order> orders = orderRepository.findAll();
         List<ResponseOrderDTO> orderDTOs = new ArrayList<>();
         for (Order order : orders) {
-            User sale = userRepository.findByUsername(order.getSaleStaff()).orElse(null);
-            User cashier = userRepository.findByUsername(order.getCashierStaff()).orElse(null);
-            User service = userRepository.findByUsername(order.getServiceStaff()).orElse(null);
+//            User sale = userRepository.findByUsername(order.getSaleStaff()).orElse(null);
+//            User cashier = userRepository.findByUsername(order.getCashierStaff()).orElse(null);
+//            User service = userRepository.findByUsername(order.getServiceStaff()).orElse(null);
 
-            UserDTO saleDTO = sale != null ? UserMapper.toResponseDTO(sale) : null;
-            UserDTO cashierDTO = cashier != null ? UserMapper.toResponseDTO(cashier) : null;
-            UserDTO serviceDTO = service != null ? UserMapper.toResponseDTO(service) : null;
-            orderDTOs.add(OrderMapper.toResponseDTO(order, saleDTO, cashierDTO, serviceDTO));
+//            UserDTO saleDTO = sale != null ? UserMapper.toResponseDTO(sale) : null;
+//            UserDTO cashierDTO = cashier != null ? UserMapper.toResponseDTO(cashier) : null;
+//            UserDTO serviceDTO = service != null ? UserMapper.toResponseDTO(service) : null;
+//            orderDTOs.add(OrderMapper.toResponseDTO(order, saleDTO, cashierDTO, serviceDTO));
         }
         return orderDTOs;
     }

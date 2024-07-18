@@ -31,13 +31,13 @@ public class WarrantyMapper {
         warranty.setOrderDetail(orderDetail);
         warranty.setCustomer(customer);
         warranty.setProduct(product);
-        warranty.setActive(dto.isActive());
         return warranty;
     }
 
     public ResponseWarrantyDTO toResponseDTO(Warranty warranty) {
         ResponseWarrantyDTO dto = new ResponseWarrantyDTO();
         dto.setId(warranty.getId());
+        dto.setCode(warranty.getCode());
         dto.setStartDate(warranty.getStartDate());
         dto.setEndDate(warranty.getEndDate());
         dto.setOrderDetailId(warranty.getOrderDetail().getOrderDetailId());

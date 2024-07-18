@@ -12,9 +12,9 @@ public class CustomerMapper {
     public static Customer toEntity(AddCustomerDTO dto) {
         Customer customer = new Customer();
         customer.setName(dto.getName());
-        customer.setEmail(dto.getEmail());
         customer.setPhone(dto.getPhone());
-        customer.setActive(dto.isActive());
+        customer.setEmail(dto.getEmail());
+        customer.setActive(true);
         return customer;
     }
 
@@ -22,9 +22,9 @@ public class CustomerMapper {
         Customer customer = new Customer();
         customer.setId(dto.getId());
         customer.setName(dto.getName());
-        customer.setEmail(dto.getEmail());
         customer.setPhone(dto.getPhone());
-        customer.setActive(dto.isActive());
+        customer.setEmail(dto.getEmail());
+        customer.setActive(true);
         return customer;
     }
 
@@ -32,9 +32,8 @@ public class CustomerMapper {
         ResponseCustomerDTO dto = new ResponseCustomerDTO();
         dto.setId(customer.getId());
         dto.setName(customer.getName());
-        dto.setEmail(customer.getEmail());
         dto.setPhone(customer.getPhone());
-        dto.setActive(customer.isActive());
+        dto.setEmail(customer.getEmail());
         return dto;
     }
 }

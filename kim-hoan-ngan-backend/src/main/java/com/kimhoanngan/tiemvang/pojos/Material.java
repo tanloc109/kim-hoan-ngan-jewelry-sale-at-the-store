@@ -15,7 +15,7 @@ public class Material {
     @Id
     private String id;
 
-    @Column(length = 50)
+    @Column(length = 50, columnDefinition = "nvarchar(50)")
     private String name;
 
     private double buyPrice;

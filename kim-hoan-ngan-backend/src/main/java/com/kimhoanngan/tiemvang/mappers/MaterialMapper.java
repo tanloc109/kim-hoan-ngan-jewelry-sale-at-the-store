@@ -4,6 +4,8 @@ import com.kimhoanngan.tiemvang.DTOs.generalsDTOs.MaterialDTO;
 import com.kimhoanngan.tiemvang.pojos.Material;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+
 @Component
 public class MaterialMapper {
 
@@ -13,7 +15,8 @@ public class MaterialMapper {
         material.setName(materialDTO.getName());
         material.setBuyPrice(materialDTO.getBuyPrice());
         material.setSellPrice(materialDTO.getSellPrice());
-        material.setActive(materialDTO.isActive());
+        material.setTimeUpdate(new Timestamp(System.currentTimeMillis()));
+        material.setActive(true);
         return material;
     }
 
@@ -23,7 +26,6 @@ public class MaterialMapper {
         materialDTO.setName(material.getName());
         materialDTO.setBuyPrice(material.getBuyPrice());
         materialDTO.setSellPrice(material.getSellPrice());
-        materialDTO.setActive(material.isActive());
         return materialDTO;
     }
 }

@@ -22,12 +22,12 @@ public class User implements UserDetails {
     @Column(length = 20)
     private String username;
 
-    @Column(length = 50)
+    @Column(length = 50, columnDefinition = "nvarchar(50)")
     private String fullName;
 
     private String password;
 
-    @Column(length = 100)
+    @Column(length = 100, columnDefinition = "nvarchar(100)")
     private String address;
 
     @Column(length = 10)

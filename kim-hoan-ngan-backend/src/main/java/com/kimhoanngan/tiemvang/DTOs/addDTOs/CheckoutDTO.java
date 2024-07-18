@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class CheckoutDTO {
-    private int customerId;
-
+    private String customerName;
+    private String email;
+    private String customerPhone;
 }

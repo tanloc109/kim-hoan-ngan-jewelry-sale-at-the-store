@@ -15,12 +15,25 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(length = 7, columnDefinition = "nvarchar(7)")
+    private String code;
+
+    @Column(length = 100, columnDefinition = "nvarchar(100)")
+    private String customerName;
+
+    @Column(length = 100, columnDefinition = "nvarchar(100)")
+    private String customerEmail;
+
+    @Column(length = 10, columnDefinition = "char(10)")
+    private String customerPhone;
+
     private Timestamp orderTime;
 
     private int totalQuantity;
 
     private double total;
 
+    @Column(length = 50, columnDefinition = "nvarchar(50)")
     private String status;
 
     private String saleStaff;

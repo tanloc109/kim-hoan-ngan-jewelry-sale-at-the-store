@@ -15,7 +15,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(length = 50)
+    @Column(length = 7, columnDefinition = "nvarchar(7)")
+    private String code;
+
+    @Column(length = 50, columnDefinition = "nvarchar(50)")
     private String name;
 
     private boolean isActive;

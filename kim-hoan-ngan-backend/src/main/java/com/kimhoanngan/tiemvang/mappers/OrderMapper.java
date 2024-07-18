@@ -4,7 +4,6 @@ import com.kimhoanngan.tiemvang.DTOs.responseDTOs.ResponseOrderDTO;
 import com.kimhoanngan.tiemvang.DTOs.updateDTOs.UpdateOrderDTO;
 import com.kimhoanngan.tiemvang.pojos.Customer;
 import com.kimhoanngan.tiemvang.pojos.Order;
-import com.kimhoanngan.tiemvang.pojos.User;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,6 +26,7 @@ public class OrderMapper {
     public static ResponseOrderDTO toResponseDTO(Order order, UserDTO saleStaff, UserDTO cashierStaff, UserDTO serviceStaff) {
         ResponseOrderDTO dto = new ResponseOrderDTO();
         dto.setId(order.getId());
+        dto.setCode(order.getCode());
         dto.setOrderTime(order.getOrderTime());
         dto.setTotalQuantity(order.getTotalQuantity());
         dto.setTotal(order.getTotal());

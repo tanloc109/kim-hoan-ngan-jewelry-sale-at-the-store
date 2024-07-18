@@ -12,32 +12,35 @@ public class StoneMapper {
 
     public static Stone toEntity(AddStoneDTO dto, Product product) {
         Stone stone = new Stone();
+        stone.setCode(dto.getCode());
         stone.setName(dto.getName());
         stone.setType(dto.getType());
         stone.setColor(dto.getColor());
         stone.setPrice(dto.getPrice());
         stone.setPrimary(dto.isPrimary());
-        stone.setActive(dto.isActive());
         stone.setProduct(product);
+        stone.setActive(true);
         return stone;
     }
 
     public static Stone toEntity(UpdateStoneDTO dto, Product product) {
         Stone stone = new Stone();
         stone.setId(dto.getId());
+        stone.setCode(dto.getCode());
         stone.setName(dto.getName());
         stone.setType(dto.getType());
         stone.setColor(dto.getColor());
         stone.setPrice(dto.getPrice());
         stone.setPrimary(dto.isPrimary());
-        stone.setActive(dto.isActive());
         stone.setProduct(product);
+        stone.setActive(true);
         return stone;
     }
 
     public static ResponseStoneDTO toResponseDTO(Stone stone) {
         ResponseStoneDTO stoneDTO = new ResponseStoneDTO();
         stoneDTO.setId(stone.getId());
+        stoneDTO.setCode(stone.getCode());
         stoneDTO.setProductId(stone.getProduct().getId());
         stoneDTO.setName(stone.getName());
         stoneDTO.setType(stone.getType());

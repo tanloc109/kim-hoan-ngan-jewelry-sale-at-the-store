@@ -29,6 +29,7 @@ public class ProductMapper {
 
     public Product toEntity(AddProductDTO dto, Category category, Material material) {
         Product product = new Product();
+        product.setCode(dto.getCode());
         product.setName(dto.getName());
         product.setGoldWeight(dto.getGoldWeight());
         product.setQuantity(dto.getQuantity());
@@ -36,15 +37,16 @@ public class ProductMapper {
         product.setSize(dto.getSize());
         product.setNumOfWarranty(dto.getNumOfWarranty());
         product.setWage(dto.getWage());
-        product.setActive(dto.isActive());
         product.setCategory(category);
         product.setMaterial(material);
+        product.setActive(true);
         return product;
     }
 
     public Product toEntity(UpdateProductDTO dto, Category category, Material material) {
         Product product = new Product();
         product.setId(dto.getId());
+        product.setCode(dto.getCode());
         product.setName(dto.getName());
         product.setGoldWeight(dto.getGoldWeight());
         product.setQuantity(dto.getQuantity());
@@ -52,15 +54,16 @@ public class ProductMapper {
         product.setSize(dto.getSize());
         product.setNumOfWarranty(dto.getNumOfWarranty());
         product.setWage(dto.getWage());
-        product.setActive(dto.isActive());
         product.setCategory(category);
         product.setMaterial(material);
+        product.setActive(true);
         return product;
     }
 
     public ResponseProductDTO toResponseDTO(Product product) {
         ResponseProductDTO dto = new ResponseProductDTO();
         dto.setId(product.getId());
+        dto.setCode(product.getCode());
         dto.setName(product.getName());
         dto.setImage(product.getImage());
         dto.setGoldWeight(product.getGoldWeight());
@@ -69,7 +72,6 @@ public class ProductMapper {
         dto.setSize(product.getSize());
         dto.setNumOfWarranty(product.getNumOfWarranty());
         dto.setWage(product.getWage());
-        dto.setActive(product.isActive());
         dto.setPriceStone(product.getPriceStone());
         dto.setStones(product.getStones().stream()
                 .map(StoneMapper::toResponseDTO)
@@ -83,6 +85,6 @@ public class ProductMapper {
         Product product = toEntity(dto, category, material);
         product = productRepository.save(product);
         String imageUrl = imageUploadingService.uploadProduct(dto.getImage());
-        return productRepository.save(product); // Lưu lại sản phẩm với URL ảnh
+        return productRepository.save(product);
     }
 }

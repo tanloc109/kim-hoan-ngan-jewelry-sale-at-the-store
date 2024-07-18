@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class AddCategoryDTO {
-
+    private String code;
     private String name;
-
 }

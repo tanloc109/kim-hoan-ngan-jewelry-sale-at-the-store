@@ -14,13 +14,13 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(length = 100)
+    @Column(length = 100, columnDefinition = "nvarchar(100)")
     private String name;
 
-    @Column(length = 10)
+    @Column(length = 10, columnDefinition = "char(10)")
     private String phone;
 
-    @Column(length = 50)
+    @Column(length = 50, columnDefinition = "nvarchar(50)")
     private String email;
 
     private boolean isActive;
