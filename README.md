@@ -1,8 +1,7 @@
-- Description: This project is a comprehensive solution designed to streamline and enhance the jewelry selling process at the Kim Hoan Ngan Jewelry store.
+- Description: This project aims to assist employees, managers, and store owners in easily managing daily transaction flows at Kim Hoan Ngan Jewelry Store. The system facilitates sales management, inventory tracking, and revenue reporting efficiently
 
 - Technologies Used:
   + Backend: Spring Boot, Spring Security JWT, Spring Data JPA, Restful API, Spring Mail
-  + Frontend: React, HTML/CSS, Bootstrap
   + Database: SQL Server
   + Tools: Firebase Storage, Azure, Swagger UI
  
@@ -17,10 +16,11 @@
   + CRUD operations for all database tables
   + API deployment using Azure
   + Best practice APIs have filters, sort, paginations
+    
 - Architecture: 3-Layer Architecture
 
-- live demo: kimhoanngan.shop
-- API: http://157.230.35.249:8080/swagger-ui/index.html#
+- API: 
+  
 - Account:
   + Staff [staff, 12345]
   + Manager [manager, 12345]
