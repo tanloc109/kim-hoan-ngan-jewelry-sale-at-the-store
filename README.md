@@ -19,7 +19,7 @@
     
 - Architecture: 3-Layer Architecture
 
-- API: 
+- API: http://157.230.35.249:8080/swagger-ui/index.html
   
 - Account:
   + Staff [staff, 12345]
