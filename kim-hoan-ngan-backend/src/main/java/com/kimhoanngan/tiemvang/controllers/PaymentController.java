@@ -35,16 +35,16 @@ public class PaymentController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PreAuthorize("hasRole('ROLE_MANAGER')")
-    @PostMapping
-    public ResponseEntity<ResponsePaymentDTO> createPayment(@RequestBody AddPaymentDTO paymentDTO) {
-        try {
-            ResponsePaymentDTO payment = paymentService.save(paymentDTO);
-            return new ResponseEntity<>(payment, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-    }
+//    @PreAuthorize("hasRole('ROLE_MANAGER')")
+//    @PostMapping
+//    public ResponseEntity<ResponsePaymentDTO> createPayment(@RequestBody AddPaymentDTO paymentDTO) {
+//        try {
+//            ResponsePaymentDTO payment = paymentService.save(paymentDTO);
+//            return new ResponseEntity<>(payment, HttpStatus.CREATED);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.CONFLICT);
+//        }
+//    }
 
     @PreAuthorize("hasRole('ROLE_MANAGER')")
     @PutMapping("/{id}")

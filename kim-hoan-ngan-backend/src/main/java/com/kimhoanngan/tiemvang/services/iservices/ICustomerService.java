@@ -10,16 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ICustomerService {
-
     Page<ResponseCustomerDTO> findAll(Pageable pageable);
-
     Page<ResponseCustomerDTO> findByCriteria(List<String> fields, List<String> values, Pageable pageable);
-
     Optional<ResponseCustomerDTO> findById(Integer id);
-
     ResponseCustomerDTO save(AddCustomerDTO customerDTO);
-
     ResponseCustomerDTO update(Integer id, UpdateCustomerDTO customerDTO);
-
     void delete(Integer id);
 }

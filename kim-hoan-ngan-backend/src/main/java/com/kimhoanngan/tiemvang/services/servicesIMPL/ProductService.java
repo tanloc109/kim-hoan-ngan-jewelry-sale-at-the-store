@@ -102,7 +102,6 @@ public class ProductService implements IProductService {
         product.setSize(productDTO.getSize());
         product.setNumOfWarranty(productDTO.getNumOfWarranty());
         product.setWage(productDTO.getWage());
-        product.setActive(productDTO.isActive());
         product.setCategory(category);
         product.setMaterial(material);
         try {

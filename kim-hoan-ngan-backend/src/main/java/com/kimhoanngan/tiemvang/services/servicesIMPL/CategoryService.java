@@ -62,10 +62,9 @@
         @Override
         public ResponseCategoryDTO update(Integer id, UpdateCategoryDTO categoryDTO) {
             Category category = categoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Category not found"));
-            category.setName(categoryDTO.getName());
-            category.setActive(categoryDTO.isActive());
-            categoryRepository.save(category);
-            return CategoryMapper.toResponseDTO(category);
+            Category updatedCategory = CategoryMapper.toEntity(categoryDTO);
+            categoryRepository.save(updatedCategory);
+            return CategoryMapper.toResponseDTO(updatedCategory);
         }
 
         @Override

@@ -9,9 +9,6 @@ import java.sql.Timestamp;
 public class ResponseOrderDTO {
     private int id;
     private String code;
-    private String customerName;
-    private String customerEmail;
-    private String customerPhone;
     private Timestamp orderTime;
     private int totalQuantity;
     private double total;

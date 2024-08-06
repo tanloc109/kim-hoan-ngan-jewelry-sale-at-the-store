@@ -124,7 +124,7 @@ public class CartService {
         }
         order.setTotal(total);
         order.setTotalQuantity(totalQuantity);
-        Customer customer = customerRepository.findById(addOrderDTO.getCustomerId()).orElseThrow();
+        Customer customer = customerRepository.findByPhone(addOrderDTO.getCustomerPhone());
         order.setCustomer(customer);
         User sales = userRepository.findByUsername(username).orElseThrow();
         order.setUser(sales);

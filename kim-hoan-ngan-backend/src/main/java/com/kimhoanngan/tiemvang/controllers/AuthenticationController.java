@@ -43,7 +43,7 @@ public class AuthenticationController {
         }
         boolean check = userService.changePassword(changePasswordRequest);
         if (check) {
-            return new ResponseEntity<>("Password changed, please check", HttpStatus.OK);
+            return new ResponseEntity<>("Password changed, please login", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Something error", HttpStatus.NO_CONTENT);
         }

@@ -36,27 +36,27 @@ public class WarrantyController{
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PreAuthorize("hasRole('ROLE_MANAGER')")
-    @PostMapping
-    public ResponseEntity<ResponseWarrantyDTO> createWarranty(@RequestBody AddWarrantyDTO warrantyDTO){
-        try {
-            ResponseWarrantyDTO warranty = warrantyService.save(warrantyDTO);
-            return new ResponseEntity<>(warranty, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
-    }
+//    @PreAuthorize("hasRole('ROLE_MANAGER')")
+//    @PostMapping
+//    public ResponseEntity<ResponseWarrantyDTO> createWarranty(@RequestBody AddWarrantyDTO warrantyDTO){
+//        try {
+//            ResponseWarrantyDTO warranty = warrantyService.save(warrantyDTO);
+//            return new ResponseEntity<>(warranty, HttpStatus.CREATED);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.CONFLICT);
+//        }
+//    }
 
-    @PreAuthorize("hasRole('ROLE_MANAGER')")
-    @PutMapping("/{id}")
-    public ResponseEntity<ResponseWarrantyDTO> updateWarranty(@PathVariable int id, @RequestBody UpdateWarrantyDTO warrantyDTO) {
-        try {
-            ResponseWarrantyDTO updated = warrantyService.update(id, warrantyDTO);
-            return new ResponseEntity<>(updated, HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @PreAuthorize("hasRole('ROLE_MANAGER')")
+//    @PutMapping("/{id}")
+//    public ResponseEntity<ResponseWarrantyDTO> updateWarranty(@PathVariable int id, @RequestBody UpdateWarrantyDTO warrantyDTO) {
+//        try {
+//            ResponseWarrantyDTO updated = warrantyService.update(id, warrantyDTO);
+//            return new ResponseEntity<>(updated, HttpStatus.OK);
+//        } catch (RuntimeException e) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
     @PreAuthorize("hasRole('ROLE_MANAGER')")
     @DeleteMapping("/{id}")

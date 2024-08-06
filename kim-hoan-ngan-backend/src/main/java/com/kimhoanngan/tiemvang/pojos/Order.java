@@ -18,15 +18,6 @@ public class Order {
     @Column(length = 7, columnDefinition = "nvarchar(7)")
     private String code;
 
-    @Column(length = 100, columnDefinition = "nvarchar(100)")
-    private String customerName;
-
-    @Column(length = 100, columnDefinition = "nvarchar(100)")
-    private String customerEmail;
-
-    @Column(length = 10, columnDefinition = "char(10)")
-    private String customerPhone;
-
     private Timestamp orderTime;
 
     private int totalQuantity;

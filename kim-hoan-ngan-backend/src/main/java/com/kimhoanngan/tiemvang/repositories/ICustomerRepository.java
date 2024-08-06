@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer,Integer>, JpaSpecificationExecutor<Customer> {
-
     Page<Customer> findAll(Pageable pageable);
 
+    Customer findByPhone(String phone);
 }

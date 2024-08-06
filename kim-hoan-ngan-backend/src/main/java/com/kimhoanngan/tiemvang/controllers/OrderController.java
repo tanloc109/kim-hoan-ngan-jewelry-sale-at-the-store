@@ -35,17 +35,17 @@ public class OrderController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PreAuthorize("hasRole('ROLE_MANAGER')")
-    @PutMapping("/{id}")
-    public ResponseEntity<ResponseOrderDTO> updateOrder(@PathVariable int id, @RequestBody UpdateOrderDTO orderDTO) {
-        try {
-            orderDTO.setId(id);
-            ResponseOrderDTO updatedOrder = orderService.update(id, orderDTO);
-            return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
-        } catch (RuntimeException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @PreAuthorize("hasRole('ROLE_MANAGER')")
+//    @PutMapping("/{id}")
+//    public ResponseEntity<ResponseOrderDTO> updateOrder(@PathVariable int id, @RequestBody UpdateOrderDTO orderDTO) {
+//        try {
+//            orderDTO.setId(id);
+//            ResponseOrderDTO updatedOrder = orderService.update(id, orderDTO);
+//            return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
+//        } catch (RuntimeException e) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
     @PreAuthorize("hasRole('ROLE_MANAGER')")
     @DeleteMapping("/{id}")
