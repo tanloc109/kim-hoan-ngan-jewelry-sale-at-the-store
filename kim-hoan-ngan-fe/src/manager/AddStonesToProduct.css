@@ -1,0 +1,144 @@
+.col-10 {
+    position: relative;
+    left: 320px;
+}
+
+.detailStone {
+    width: 645px;
+    min-height: 250px;
+    position: absolute;
+    left: 20px;
+    top: 540px;
+    background-color: #fff4e8;
+    border-radius: 7px;
+    box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addStoneShow {
+    width: 485px;
+    min-height: 250px;
+    position: absolute;
+    left: 680px;
+    top: 540px;
+    background-color: #fff4e8;
+    border-radius: 7px;
+    box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addStoneToProduct {
+    height: 1250px;
+    width: 1200px;
+    background-color: #fff4e8;
+    position: absolute;
+    margin-left: -47px;
+}
+
+.addStoneDetail {
+    width: 95%;
+    min-height: 414.2px;
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    background-color: #fff4e8;
+    border-radius: 7px;
+    box-shadow: 0 4px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tieuDeDetail {
+    font-weight: 500;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.formAddStone {
+    margin-top: 10px;
+
+}
+
+.goldBenAdd {
+    margin-left: 120px;
+
+}
+
+.comboboxGoldBenAdd {
+    margin-left: -65px;
+    width: 230px;
+}
+
+.huy {
+    margin-left: 340px;
+    margin-right: 10px;
+    background-color: silver !important;
+}
+
+.huy,
+.them {
+    background-color: #A2041b;
+    margin-top: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    border-width: 0px;
+}
+
+.huy:hover {
+    background-color: #c0263d;
+}
+
+.them:hover {
+    background-color: #c0263d;
+}
+
+.titleFormAddStone {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+.tableStoneDetail {
+    margin-bottom: 10px;
+    width: 97%;
+    margin-left: 10px;
+}
+
+.tableStoneDetail th,
+.tableStoneDetail td {
+    border-width: 1px;
+    text-align: center;
+
+}
+
+.tableStoneDetail th {
+    background-color: #A2041b;
+    color: #fff4e8;
+}
+
+.btn-back{
+        height: 38px;
+        margin-left: 870px;
+        background-color: orange !important;
+    }
+.btnxx {
+
+    background-color: rgb(51, 51, 205);
+    color: #fff4e8;
+    border-radius: 7px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}
+.btnxx:hover{
+    opacity: 0.8;
+}
+.muonthemda {
+    margin-top: 10px;
+    margin-left: 340px;
+    z-index: 100000;
+}
+.btn-donee{
+    background-color: green;
+}
+.comboboxDmm{
+    margin-left: -9px;
+}

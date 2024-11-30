@@ -1,0 +1,158 @@
+.staffHome {
+    position: relative;
+    min-height: 70vh;
+    margin-top: 74px;
+    background-color: #FFF4E8;
+    padding-bottom: 24px;
+}
+
+.staffHome h1 {
+    padding-top: 24px;
+    margin-left: -62px;
+    color: #A2041b;
+}
+
+.staff-orders-table {
+    width: 92vw;
+    margin-left: -60px;
+}
+
+.staff-orders-table th {
+    background-color: #A2041b;
+    color: #fff4e8;
+    text-align: center;
+    padding: 8px;
+    border: 2px solid #ccc;
+  }
+  
+  .staff-orders-table td {
+    border: 2px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    background-color: #fff4e8;
+    margin-bottom: 20px;
+  }
+
+  .btn-create-new-order {
+    margin-bottom: 16px;
+    padding: 12px;
+    margin-right: -56px;
+  }
+
+  .staffhome-panationing {
+    position: absolute;
+    bottom: 8px;
+    right: 70px;  
+  }
+
+  .staffHome {
+    padding-bottom: 84px;
+  }
+
+  .mw-230px {
+    min-width: 230px;
+  }
+
+  .staffhome-pagination-filter {
+    position: absolute;
+    right: 54px;
+    bottom: -4px;
+    margin-bottom: 12px;
+  }
+
+  .not-have-order {
+    margin-top: 400px;
+    margin-left: 48%;
+  }
+
+  .search-filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    height: 32px;
+}
+
+.filter-item {
+  display: flex;
+    flex: 1; 
+    min-width: 200px;
+    height: 32px;
+}
+
+.form-label {
+    display: block; 
+    width: 240px;
+    margin-top: 4px;
+}
+
+.form-input-search-order {
+  margin-left: -100px;
+}
+
+.filter-status-form {
+  height: 42px;
+}
+
+.btn-outline-success {
+  color: #A2041b !important;
+  border: 1px solid #A2041b !important;
+  background-color: transparent !important;
+}
+
+.btn-outline-success.active,
+.btn-outline-success:active,
+.btn-outline-success:focus,
+.btn-outline-success:hover {
+  background-color: #A2041b !important;
+  color: #fff !important;
+  border-color: #A2041b !important;
+}
+
+.btn-outline-success:focus,
+.btn-outline-success:active {
+  box-shadow: none !important;
+}
+
+/* .clear-filter.active,
+.clear-filter:active,
+.clear-filter:focus,
+.clear-filter:hover {
+  background-color: #A2041b !important;
+  color: #fff !important;
+  border-color: #A2041b !important;
+}
+
+.clear-filter:focus,
+.clear-filter:active {
+  box-shadow: none !important;
+} */
+
+.clear-filter {
+  background-color: #A2041b !important;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #A2041b !important;
+}
+
+.clear-filter i {
+  padding: 0;
+}
+
+.tbdsdhl thead td, .tbdsdhl tbody tr td {
+  white-space: nowrap !important; 
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.btn-inhoadon {
+  /* position: absolute;
+  left: 24px; */
+}
+
+.bill-store {
+  width: 480px;
+}

@@ -1,0 +1,155 @@
+.warrantyCardList {
+    margin-top: 75px;
+    background-color: #FFF4E8;
+    padding: 0 40px;
+    padding-bottom: 120px;
+    min-height: 70vh
+}
+
+.warranty-card {
+    background-color: #FFF;
+    width: 45vw;
+    border: 1px solid orange;
+    margin-bottom: 20px;
+}
+.warrantyCardList-title {
+    margin-left: -8px;
+    color: #A2041B;
+    padding-left: 60px;
+}
+
+.warranty-card-list {
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.phieu-bao-hanh-header {
+    color: #A2041B;
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.axy {
+    margin: 0px 12px !important;
+}
+
+.bd-r {
+    border-right: 2px solid #A2041B;
+}
+
+.table-warranties {
+    position:  relative !important;
+    margin-top: -96px !important;
+    margin-left: 24px;
+}
+
+.warranty-toExport {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #940000;
+}
+
+.warranty-toExport h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.warranty-toExport p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.warranty-detail-pdf-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Faded background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.warranty-detail-pdf {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    height: 90%;
+    overflow: auto;
+
+}
+
+.kyten {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 24px;
+    padding-bottom: 80px;
+}
+
+.orderPDF {
+    padding: 16px;
+}
+
+.pbh-nutbam {
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.closeShow {
+    height: 36px;
+    font-size: 20px;
+}
+
+.shop {
+    margin-right: 40px;
+}
+
+.product-table, .stone-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    text-align: center;
+
+}
+
+.table-header {
+    background-color: #A2041b !important;
+    color: #fff; 
+}
+
+.table-header th{
+    background-color: #A2041b !important;
+    color: #fff; 
+}
+
+.product-table td, .stone-table td{
+    border: 1px solid #cccccc !important;
+}
+
+.non-bold {
+    font-weight: normal;
+}
+
+.title-page {
+    margin-left: 200px;
+}
+
+.img-logo-pbh {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.pbh-title-pdf {
+    color: #A2041B;
+    font-weight: bold;
+    font-size: 60px;
+}
