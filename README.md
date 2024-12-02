@@ -1,4 +1,4 @@
-![Screenshot 2024-12-02 222256](https://github.com/user-attachments/assets/301eec13-5daf-4954-ab9f-0b6369b225a7)![Screenshot 2024-12-02 222256](https://github.com/user-attachments/assets/e76ec17b-56b3-4af0-996a-6061cfc39ef9)- Description: This project aims to assist employees, managers, and store owners in easily managing daily transaction flows at Kim Hoan Ngan Jewelry Store. The system facilitates sales management, inventory tracking, and revenue reporting efficiently
+- Description: This project aims to assist employees, managers, and store owners in easily managing daily transaction flows at Kim Hoan Ngan Jewelry Store. The system facilitates sales management, inventory tracking, and revenue reporting efficiently
 
 - Technologies Used:
   + Backend: Spring Boot, Spring Security JWT, Spring Data JPA, Restful API, Spring Mail
